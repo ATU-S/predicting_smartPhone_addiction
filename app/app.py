@@ -110,3 +110,4 @@ st.caption(
     "Note: This dashboard is intended for educational and analytical purposes only. "
     "It does not provide clinical diagnosis."
 )
+st.caption("© 2026 Smartphone Addiction ML Project")
