@@ -1,26 +1,29 @@
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.model_selection import train_test_split
-from .config import TARGET_COL, TEST_SIZE, RANDOM_STATE
+from .config import TARGET_COL, TEST_SIZE, RANDOM_STATE, MIN_SAMPLES_FOR_STRATIFY
+from .logger import get_logger
+
+logger = get_logger("Preprocessing")
 
 def encode_target(df):
-    """
-    Encodes the target column if it is categorical.
-    """
     if df[TARGET_COL].dtype == "object":
         encoder = LabelEncoder()
         df[TARGET_COL] = encoder.fit_transform(df[TARGET_COL])
+        logger.info("Target column encoded")
     return df
 
 def split_and_scale(X, y):
-    """
-    Splits data and applies standard scaling.
-    """
+    stratify = y if len(y) >= MIN_SAMPLES_FOR_STRATIFY else None
+
+    if stratify is None:
+        logger.warning("Stratification disabled due to small dataset")
+
     X_train, X_test, y_train, y_test = train_test_split(
         X,
         y,
         test_size=TEST_SIZE,
         random_state=RANDOM_STATE,
-        stratify=y
+        stratify=stratify
     )
 
     scaler = StandardScaler()
