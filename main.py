@@ -1,23 +1,16 @@
 from src.experiment import run_experiment
+from src.config import RESULTS_DIR, RESULTS_FILE
 import os
 
 def main():
     print("Starting Smartphone Addiction ML Experiment...")
 
-    # Ensure results directory exists
-    os.makedirs("results", exist_ok=True)
+    os.makedirs(RESULTS_DIR, exist_ok=True)
+    results = run_experiment()
+    results.to_csv(RESULTS_FILE, index=False)
 
-    # Run experiment
-    results_df = run_experiment()
-
-    # Save results
-    output_path = "results/feature_comparison_results.csv"
-    results_df.to_csv(output_path, index=False)
-
-    print("\nExperiment completed successfully.")
-    print(f"Results saved to: {output_path}\n")
-
-    print(results_df)
+    print("\nExperiment completed successfully")
+    print(results)
 
 if __name__ == "__main__":
     main()
