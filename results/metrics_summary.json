@@ -1,0 +1,28 @@
+{
+  "dataset_size": 100,
+  "label_distribution": {
+    "Low": 9,
+    "Moderate": 44,
+    "High": 47
+  },
+  "best_model": {
+    "model_name": "Logistic Regression",
+    "feature_set": "Combined",
+    "selection_metric": "F1-weighted",
+    "best_score": 0.94984520123839,
+    "metrics": {
+      "Accuracy": 0.95,
+      "F1-weighted": 0.94984520123839,
+      "F1-macro": 0.9628482972136223,
+      "Precision-weighted": 0.9550000000000001,
+      "Recall-weighted": 0.95,
+      "ROC-AUC-OVR": 1.0
+    },
+    "labels": [
+      "Low",
+      "Moderate",
+      "High"
+    ],
+    "trained_at": "2026-02-13T10:10:54.851637Z"
+  }
+}
