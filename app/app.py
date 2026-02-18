@@ -212,12 +212,14 @@ with tab4:
         # Allow user selection
         st.subheader("Select a User Profile")
         
-        user_idx = st.slider(
-            "Choose user ID:",
+        user_idx = st.number_input(
+            label="Choose user ID:",
             min_value=0,
             max_value=len(df) - 1,
+            step=1,
             value=0
         )
+
         
         user_data = df.iloc[[user_idx]]
         

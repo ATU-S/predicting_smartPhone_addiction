@@ -1,0 +1,10 @@
+Model,Feature Set,Accuracy,F1-score
+Logistic Regression,Behavioral,0.85,0.8461309523809524
+Logistic Regression,Psychological,0.4,0.373109243697479
+Logistic Regression,Combined,0.9,0.89875
+Decision Tree,Behavioral,0.75,0.749078947368421
+Decision Tree,Psychological,0.45,0.44860681114551076
+Decision Tree,Combined,0.7,0.7041666666666667
+Random Forest,Behavioral,0.65,0.6479166666666666
+Random Forest,Psychological,0.55,0.5347058823529411
+Random Forest,Combined,0.75,0.71
